@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import UserItem from './UserItem';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsersAsync } from '../redux/userSlice'
 
 const UserList = () => {
+  const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+
+  useEffect(() => {
+    dispatch(getUsersAsync())
+  }, [dispatch])
 
   return (
     <ul className='list-group'>

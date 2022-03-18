@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from "../redux/userSlice";
 
-const UserItem = ({ id, name, completed }) => {
+const UserItem = ({ id, name }) => {
 
   const dispatch = useDispatch()
 
@@ -11,8 +11,11 @@ const UserItem = ({ id, name, completed }) => {
   }
 
 	return (
-		<li className={`list-group-item ${completed && 'list-group-item-success'}`}>
+		<li className={`list-group-item && 'list-group-item-success'}`}>
 			<div className='d-flex justify-content-between'>
+      <span className='d-flex align-items-center'>
+					{id}
+				</span>
 				<span className='d-flex align-items-center'>
 					{name}
 				</span>

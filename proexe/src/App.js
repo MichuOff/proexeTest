@@ -7,7 +7,7 @@ import TotalItems from './components/TotalItems';
 const App = () => {
 	return (
 		<div className='container bg-white p-4 mt-5'>
-			<h1>My Todo List</h1>
+			<h1>Dashboard</h1>
 			<AddUserForm />
 			<UserList />
 			<TotalItems />
