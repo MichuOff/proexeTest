@@ -27,7 +27,6 @@ const userSlice = createSlice({
       const newUser = {
         id: Date.now(),
         name: action.payload.name,
-        email: action.payload.name,
       };
       state.push(newUser)
     },

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from "../redux/userSlice";
+import DeleteModal  from './Modal/ConfirmationDeleteModal';
 
-const UserItem = ({ id, name }) => {
+const UserItem = ({ id, name, username, email, city }) => {
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch()
 
   const handleDelete = () => {
     dispatch(deleteUser({id: id}))
+    setShow(false)
   }
 
 	return (
@@ -19,7 +22,19 @@ const UserItem = ({ id, name }) => {
 				<span className='d-flex align-items-center'>
 					{name}
 				</span>
-				<button onClick={() => handleDelete()} className='btn btn-danger'>Delete</button>
+        <span className='d-flex align-items-center'>
+					{username}
+				</span>
+        <span className='d-flex align-items-center'>
+					{email}
+				</span>
+        <span className='d-flex align-items-center'>
+					{city}
+				</span>
+				<button onClick={() => setShow(true)} className='btn btn-danger'>Delete</button>
+        <DeleteModal show={show} onClose={() => setShow(false)} onDelete={() => handleDelete()}>
+          <p>Delete this user: {name}</p>
+        </DeleteModal>
 			</div>
 		</li>
 	);
