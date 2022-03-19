@@ -15,23 +15,24 @@ const UserItem = ({ id, name, username, email, city }) => {
 
 	return (
 		<li className={`list-group-item && 'list-group-item-success'}`}>
-			<div className='d-flex justify-content-between'>
-      <span className='d-flex align-items-center'>
+			<div className='d-flex justify-content-between row'>
+      <span className='d-flex align-items-center col-'>
 					{id}
 				</span>
-				<span className='d-flex align-items-center'>
+				<span className='d-flex align-items-center col-2'>
 					{name}
 				</span>
-        <span className='d-flex align-items-center'>
+        <span className='d-flex align-items-center col-2'>
 					{username}
 				</span>
-        <span className='d-flex align-items-center'>
+        <span className='d-flex align-items-center col-'>
 					{email}
 				</span>
-        <span className='d-flex align-items-center'>
+        <span className='d-flex align-items-center col-2'>
 					{city}
 				</span>
-				<button onClick={() => setShow(true)} className='btn btn-danger'>Delete</button>
+        <button className='btn btn-warning col-'>Edit</button>
+				<button onClick={() => setShow(true)} className='btn btn-danger col-'>Delete</button>
         <DeleteModal show={show} onClose={() => setShow(false)} onDelete={() => handleDelete()}>
           <p>Delete this user: {name}</p>
         </DeleteModal>

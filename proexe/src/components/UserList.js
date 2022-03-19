@@ -13,7 +13,31 @@ const UserList = () => {
 
   return (
     <ul className='list-group'>
-      {console.log("USERs =>", users)}
+      <li className={`list-group-item && 'list-group-item-success'}`}>
+			<div className='d-flex justify-content-between'>
+      <span className='d-flex align-items-center'>
+					ID
+				</span>
+				<span className='d-flex align-items-center'>
+					Name
+				</span>
+        <span className='d-flex align-items-center'>
+					Username
+				</span>
+        <span className='d-flex align-items-center'>
+					Email
+				</span>
+        <span className='d-flex align-items-center'>
+					City
+				</span>
+        <span className='d-flex align-items-center'>
+					Edit
+				</span>
+        <span className='d-flex align-items-center'>
+					Delete
+				</span>
+			</div>
+		</li>
       {users.map((user) =>
         <UserItem id={user?.id} name={user?.name} username={user?.username} email={user?.email} city={user?.address?.city}/>
       )}
